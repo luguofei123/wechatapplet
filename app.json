@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#42BD56",
+    "navigationBarTitleText": "豆瓣书店",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh":true
+   
+  }
+}

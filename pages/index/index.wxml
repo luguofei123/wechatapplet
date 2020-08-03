@@ -1,0 +1,44 @@
+<view class="search-container">
+  <input type="text" bindinput='searchkey' placeholder="输入书名搜索"></input>
+  <icon type="search" bindtap='searchBook' size="20"/>
+</view>
+
+<scroll-view scroll-y="true" class="book-container" bindscrolltolower="moreload" bindscrolltoupper="topload"  bindscroll="scroll">
+
+    <view wx:if="{{bookerror}}" style="text-align:center;padding-top:50rpx;">
+      <icon type="cancel" color="red" size="40" />
+      <view><text>没有找到相关图书</text></view>
+    </view>
+
+  <view style="text-align:center;padding-top:50rpx;display:none">
+      <icon type="search" size="60" />
+      <view><text>豆瓣图书</text></view>
+    </view>
+
+
+    <view class="header">
+      <text>图书{{total}}本图书</text>
+    </view>
+
+
+  <view wx:for="{{bookarr}}" wx:key="id">
+    <view class="common-list" bindtap='showdetail' id="{{item.id}}">
+        <view class="index-list-item">
+            <view class="cover">
+              <image class="cover-img" src="{{item.bookurl}}"></image>
+            </view>
+            <view class="content">
+                <view class="title">{{item.bookname}}</view>
+                <text class="desc">{{item.time}}</text>
+             </view>
+      
+        </view>
+    </view>
+
+  </view>
+
+    <view class="refresh-footer" hidden='{{!isfresh}}'>
+      <icon type="waiting" size="30" color="reed"  />
+    </view>
+
+</scroll-view>
