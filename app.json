@@ -1,14 +1,44 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/detail/detail"
+    "pages/douban-book/index/index",
+    "pages/douban-book/detail/detail",
+    "pages/douban-movie/movie-soon/movie-soon",
+    "pages/douban-movie/movie-soon-detail/movie-soon-detail",
+    "pages/douban-movie/movie-ing/movie-ing",
+    "pages/douban-movie/movie-ing-detail/movie-ing-detail"
   ],
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#268dcd",
+    "borderStyle": "white",
+    "backgroundColor": "#fafafa",
+    "list": [
+      {
+        "pagePath": "pages/douban-book/index/index",
+        "iconPath": "images/book.png",
+        "selectedIconPath": "images/book-active.png",
+        "text": "豆瓣图书"
+      },
+      {
+        "pagePath": "pages/douban-movie/movie-ing/movie-ing",
+        "iconPath": "images/ing.png",
+        "selectedIconPath": "images/ing-active.png",
+        "text": "正在上映"
+      },
+      {
+        "pagePath": "pages/douban-movie/movie-soon/movie-soon",
+        "iconPath": "images/coming.png",
+        "selectedIconPath": "images/coming-active.png",
+        "text": "即将上映"
+      }
+    ]
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#42BD56",
-    "navigationBarTitleText": "豆瓣书店",
+    "navigationBarTitleText": "豆瓣应用",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh":true
-   
-  }
+    "enablePullDownRefresh": true
+  },
+  "sitemapLocation": "sitemap.json"
 }
