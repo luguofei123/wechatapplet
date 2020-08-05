@@ -6,7 +6,7 @@ Page({
    */
   data: {
     hasMore: false,
-    showLoading: false,
+    showLoading: true,
     loadMoreLoading: false,
     films:[]
   },
@@ -19,12 +19,13 @@ Page({
     var that = this
     wx.showNavigationBarLoading(); //在标题栏中显示加载
     wx.request({
-      url: 'http://127.0.0.1:3000/laterMovie',
+      url: 'http://127.0.0.1:3000/nowPlaying',
       data: {},
       method: 'GET',
       // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       // header: {}, // 设置请求的 header
       success: function (res) {
+        console.log(res.data)
         that.setData({
           films: res.data,
           showLoading: false,

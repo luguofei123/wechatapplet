@@ -19,7 +19,7 @@
           </view>
           <view class="film-rating">
             <block wx:if="{{film.willSeePerson.length > 0}}">
-              <text class="label">评分</text>
+              <!-- <text class="label">评分</text> -->
               <text class="rating">{{film.willSeePerson}}</text>
             </block>
             <block wx:else>

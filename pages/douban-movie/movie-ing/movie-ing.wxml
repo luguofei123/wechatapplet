@@ -13,14 +13,14 @@
         <view class="film-info">
           <view>
             <text class="film-title">{{film.title}}</text>
-          </view>
-          <view>
             <text class="film-year">{{film.ondate}}</text>
           </view>
           <view class="film-rating">
-            <block wx:if="{{film.willSeePerson.length > 0}}">
+            <block wx:if="{{film.score > 0}}">
               <text class="label">评分</text>
-              <text class="rating">{{film.willSeePerson}}</text>
+              <text class="rating">{{film.score}} </text>
+              <text class="label"> 评论数</text>
+              <text class="rating">{{film.votecount}}</text>
             </block>
             <block wx:else>
               <text class="label">暂无评分</text>
@@ -28,12 +28,20 @@
           </view>
           <view class="directors">
             <text class="label">区域</text>
-            <text class="person">{{film.area}}</text>
+            <text class="person">{{film.region}}</text>
           </view>
           <view class="casts">
-            <text class="label">类型</text>
-            <text class="person">{{film.type}}</text>
+            <text class="label">导演</text>
+            <text class="person">{{film.director}}</text>
           </view>
+          <view class="casts">
+            <text class="label">主演</text>
+            <text class="person">{{film.actors}}</text>
+          </view>
+          <!-- <view class="casts" wx:if="film.duration">
+            <text class="label">时长</text>
+            <text class="person">{{film.duration}}</text>
+          </view> -->
         </view> 
       </view>
     </block>
