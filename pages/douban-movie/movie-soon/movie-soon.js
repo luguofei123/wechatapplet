@@ -5,10 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hasMore: false,
+    hasMore: true,
     showLoading: true,
     loadMoreLoading: false,
-    films:[]
+    start: 0,
+    pageNumber: 5,
+    films:[],
+    filmsBak:[]
   },
 
   /**
@@ -25,12 +28,12 @@ Page({
       // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       // header: {}, // 设置请求的 header
       success: function (res) {
-        console.log(res.data)
         that.setData({
-          films: res.data,
+          filmsBak: res.data,
+          films: res.data.slice(0,that.data.pageNumber),
           showLoading: false,
-          hasMore: false,
-          loadMoreLoading: false
+          start: res.data.length>that.data.pageNumber?that.data.pageNumber:res.data.length,
+          hasMore: res.data.length>that.data.pageNumber?true:false,
         })
       },
       fail: function () {
@@ -83,7 +86,21 @@ Page({
    */
   onReachBottom: function () {
     console.log("上啦");
-   
+    this.setData({
+      loadMoreLoading: true
+    })
+    setTimeout(()=>{
+      // console.log(this.data.start,this.data.pageNumber)
+      // console.log(this.data.filmsBak)
+      // let a = this.data.filmsBak.slice(this.data.start,this.data.pageNumber+this.data.start)
+      // console.log(a)
+      this.setData({
+        films: this.data.films.concat(this.data.filmsBak.slice(this.data.start,this.data.pageNumber + this.data.start)),
+        start: this.data.filmsBak.length>this.data.start?this.data.start+this.data.pageNumber : this.data.filmsBak.length,
+        hasMore: this.data.filmsBak.length>this.data.start?true:false,
+        loadMoreLoading: false
+      })
+    },1000)
   },
 
   /**

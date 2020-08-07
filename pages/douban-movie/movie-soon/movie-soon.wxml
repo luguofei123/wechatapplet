@@ -37,7 +37,7 @@
         </view> 
       </view>
     </block>
-    <!-- <view class="load-more-wrap">
+    <view class="load-more-wrap">
         <block wx:if="{{hasMore}}">
           <block wx:if="{{loadMoreLoading}}">
             <view class="load-content">
@@ -55,6 +55,6 @@
             <text>没有更多内容了</text>
           </view>
         </block>
-      </view> -->
+      </view>
   </scroll-view>
 </block>
